@@ -1,1 +1,60 @@
-# Guía de Referencia para Gemini Code Assistant\r\n\r\n## 1. Resumen del Proyecto\r\n**Proyecto:** Visor de Markdown Minimalista.  \r\n\r\n**Descripción:**  \r\nUna aplicación de escritorio instalable para Windows, construida con tecnologías web (HTML, CSS, JavaScript) en un solo archivo. El objetivo es proporcionar una herramienta elegante y funcional para visualizar y editar archivos Markdown (.md). El diseño es minimalista y moderno, enfocado en la usabilidad.\r\n\r\n**nombre de la aplicacion:** Markdown Reader\r\n\r\n---\r\n\r\n## 2. Contexto y Objetivos\r\n**Aplicación Nativa:**  \r\nEl código web debe estar contenido en un único archivo (`main.html`), que será empaquetado como un ejecutable de Windows con **Electron** o **WebView2**.\r\n\r\n### Objetivos del MVP (Producto Mínimo Viable)\r\n\r\n**Fase 1 (Actual):**\r\n- Crear la estructura básica de `main.html`.  \r\n- Implementar un diseño de doble panel (editor y vista previa).  \r\n- Integrar las librerías necesarias.  \r\n- Habilitar la lectura de archivos Markdown desde el sistema.  \r\n- Sincronizar la vista previa en tiempo real.  \r\n\r\n**Fases Futuras:**  \r\nEl plan incluye la adición de funcionalidades como **guardar**, **temas oscuro/claro**, y **optimizaciones de rendimiento**.  \r\n> ⚠️ Estas funcionalidades **no deben implementarse en esta fase**.\r\n\r\n---\r\n\r\n## 3. Requisitos de Código y Diseño\r\n**Archivo Único:**  \r\nTodo el código (HTML, CSS y JavaScript) debe estar en un solo archivo llamado `main.html`.  \r\nNo se permiten archivos separados.\r\n\r\n**Librerías:**\r\n- **CSS:** Utilizar Tailwind CSS a través de su CDN.  \r\n- **Markdown:** Usar Showdown.js para la conversión de Markdown a HTML.  \r\n- **Resaltado de Sintaxis:** Usar highlight.js para bloques de código.  \r\n\r\n**UI/UX:**\r\n- **Diseño:** Minimalista, moderno, con enfoque en la funcionalidad.  \r\n- **Disposición:** Dos columnas: un `<textarea>` para la edición (izquierda) y un `<div>` para la vista previa (derecha).  \r\n- **Tipografía:** Fuente legible como *Inter*.  \r\n- **Controles:** Implementar un botón **\"Abrir Archivo\"** para el MVP.  \r\n\r\n---\r\n\r\n## 4. Pruebas y Calidad\r\n- **Pruebas de la Fase 1:**  \r\n  La funcionalidad de abrir un archivo y la sincronización en tiempo real deben ser validadas.  \r\n\r\n- **Manejo de Errores:**  \r\n  Incluir comentarios en el código para el manejo de errores básicos, como la lectura fallida de archivos.  \r\n\r\n---\r\n\r\n## 5. Idioma\r\nTodo el texto visible para el usuario y los comentarios en el código deben estar en **ingles**.\r\n
+# Guía de Referencia para Gemini Code Assistant
+
+## 1. Resumen del Proyecto
+**Proyecto:** Visor de Markdown Minimalista.  
+
+**Descripción:**  
+Una aplicación de escritorio instalable para Windows, construida con tecnologías web (HTML, CSS, JavaScript) en un solo archivo.  
+El objetivo es proporcionar una herramienta elegante y funcional para visualizar y editar archivos Markdown (`.md`).  
+El diseño es minimalista y moderno, enfocado en la usabilidad.
+
+---
+
+## 2. Contexto y Objetivos
+**Aplicación Nativa:**  
+El código web debe estar contenido en un único archivo (`main.html`), que será empaquetado como un ejecutable de Windows con **Electron** o **WebView2**.
+
+**Objetivos del MVP (Producto Mínimo Viable):**
+
+- **Fase 1 (Actual):**
+  - Crear la estructura básica de `main.html`.
+  - Implementar un diseño de doble panel (editor y vista previa).
+  - Integrar las librerías necesarias.
+  - Habilitar la lectura de archivos Markdown desde el sistema.
+  - Sincronizar la vista previa en tiempo real.
+
+- **Fases Futuras:**  
+  El plan incluye la adición de funcionalidades como guardar, temas oscuro/claro y optimizaciones de rendimiento.  
+  **No implementar estas funcionalidades en esta fase.**
+
+---
+
+## 3. Requisitos de Código y Diseño
+- **Archivo Único:**  
+  Todo el código (HTML, CSS y JavaScript) debe estar en un solo archivo llamado `main.html`.  
+  No se permiten archivos separados.
+
+- **Librerías:**
+  - **CSS:** Utilizar Tailwind CSS a través de su CDN.
+  - **Markdown:** Usar Showdown.js para la conversión de Markdown a HTML.
+  - **Resaltado de Sintaxis:** Usar highlight.js para bloques de código.
+
+- **UI/UX:**
+  - **Diseño:** Minimalista, moderno, con enfoque en la funcionalidad.
+  - **Disposición:** Dos columnas: un `<textarea>` para la edición a la izquierda y un `<div>` para la vista previa a la derecha.
+  - **Tipografía:** Fuente legible como *Inter*.
+  - **Controles:** Implementar un botón **"Abrir Archivo"** para el MVP.
+
+---
+
+## 4. Pruebas y Calidad
+- **Pruebas de la Fase 1:**  
+  La funcionalidad de abrir un archivo y la sincronización en tiempo real deben ser validadas.
+
+- **Manejo de Errores:**  
+  Incluir comentarios en el código para el manejo de errores básicos, como la lectura fallida de archivos.
+
+---
+
+## 5. Idioma
+Todo el texto visible para el usuario y los comentarios en el código deben estar en **ingles**.
