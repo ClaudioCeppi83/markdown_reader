@@ -1,10 +1,16 @@
 # Markdown Reader
 
-**Version:** (alpha) 0.1.1
+**Version:** (alpha) 0.2.0
 
 A minimalist desktop Markdown viewer and editor built with web technologies.
 
 ## Changelog
+
+### [0.2.0] - 2025-09-08
+- **Added:** Theme switcher with Light, Dark, and System modes.
+- **Added:** User's theme preference is saved in `localStorage`.
+- **Added:** Custom dropdown menu for theme selection with a selected theme indicator.
+- **Changed:** The default theme is now based on the user's system preference.
 
 ### [0.1.1] - 2025-09-08
 - **Added:** "Save File" functionality to save the editor content to a local file.
