@@ -8,6 +8,7 @@ Una aplicación de escritorio instalable para Windows, construida con tecnologí
 El objetivo es proporcionar una herramienta elegante y funcional para visualizar y editar archivos Markdown (`.md`).  
 El diseño es minimalista y moderno, enfocado en la usabilidad.
 
+**Nombre de la aplicacion:** Markdown Reader
 ---
 
 ## 2. Contexto y Objetivos
