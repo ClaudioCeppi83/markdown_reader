@@ -1,10 +1,13 @@
 # Markdown Reader
 
-**Version:** (alpha) 0.2.0
+**Version:** (alpha) 0.2.1
 
 A minimalist desktop Markdown viewer and editor built with web technologies.
 
 ## Changelog
+
+### [0.2.1] - 2025-09-08
+- **Changed:** Adjusted the color palette for both light and dark themes to improve contrast and visual hierarchy based on UI/UX feedback.
 
 ### [0.2.0] - 2025-09-08
 - **Added:** Theme switcher with Light, Dark, and System modes.
