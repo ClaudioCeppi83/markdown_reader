@@ -43,9 +43,15 @@
     <!-- Header -->
     <header class="bg-gray-800 border-b border-gray-700 px-4 py-2 flex items-center justify-between w-full">
         <h1 class="text-lg font-bold">Markdown Reader</h1>
-        <div>
+        <div class="flex items-center gap-x-4">
+            <button id="new-file-btn" class="bg-gray-600 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded cursor-pointer">
+                New File
+            </button>
+            <button id="save-file-btn" class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded cursor-pointer">
+                Save File
+            </button>
             <input type="file" id="file-input" class="hidden" accept=".md,.markdown,.txt">
-            <label for="file-input" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded cursor-pointer">
+            <label id="open-file-label" for="file-input" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded cursor-pointer">
                 Open File
             </label>
         </div>
@@ -71,6 +77,11 @@
             const editor = document.getElementById('editor');
             const preview = document.getElementById('preview');
             const fileInput = document.getElementById('file-input');
+            const newFileBtn = document.getElementById('new-file-btn');
+            const saveFileBtn = document.getElementById('save-file-btn');
+            const openFileLabel = document.getElementById('open-file-label');
+
+            let isDirty = false;
 
             // Configure Showdown
             const converter = new showdown.Converter({
@@ -94,7 +105,10 @@
             }
 
             // Sync editor content to preview in real-time
-            editor.addEventListener('input', updatePreview);
+            editor.addEventListener('input', function() {
+                isDirty = true;
+                updatePreview();
+            });
 
             // Handle file opening
             fileInput.addEventListener('change', function(event) {
@@ -104,6 +118,7 @@
                     reader.onload = function(e) {
                         editor.value = e.target.result;
                         updatePreview(); // Update preview after loading file
+                        isDirty = false;
                     };
                     reader.onerror = function() {
                         // Placeholder for error handling
@@ -139,6 +154,44 @@
                 '```\n\n' +
                 'Start by clearing this text or click \'Open File\' to load your own Markdown file.';
             updatePreview();
+
+            // Handle New File button click
+            newFileBtn.addEventListener('click', function() {
+                if (isDirty && !confirm('You have unsaved changes. Are you sure you want to start a new file?')) {
+                    return;
+                }
+                editor.value = '';
+                updatePreview();
+                isDirty = false;
+            });
+
+            // Handle Save File button click
+            saveFileBtn.addEventListener('click', function() {
+                const markdownContent = editor.value;
+                const blob = new Blob([markdownContent], { type: 'text/markdown' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = 'untitled.md';
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+                isDirty = false;
+            });
+
+            openFileLabel.addEventListener('click', function(event) {
+                if (isDirty && !confirm('You have unsaved changes. Are you sure you want to open a new file?')) {
+                    event.preventDefault();
+                }
+            });
+
+            window.addEventListener('beforeunload', function (e) {
+                if (isDirty) {
+                    e.preventDefault();
+                    e.returnValue = '';
+                }
+            });
         });
     </script>
 
