@@ -1,0 +1,51 @@
+{
+  "name": "markdown_reader",
+  "version": "1.0.0",
+  "description": "A minimalist desktop Markdown viewer and editor.",
+  "main": "electron.js",
+  "scripts": {
+    "start": "electron .",
+    "build:win": "electron-builder --win",
+    "build:linux": "electron-builder --linux",
+    "build:mac": "electron-builder --mac",
+    "build:all": "electron-builder -wml",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ClaudioCeppi83/markdown_reader.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/ClaudioCeppi83/markdown_reader/issues"
+  },
+  "homepage": "https://github.com/ClaudioCeppi83/markdown_reader#readme",
+  "devDependencies": {
+    "electron": "^38.0.0",
+    "electron-builder": "^26.0.12"
+  },
+  "build": {
+    "appId": "com.yourcompany.markdownreader",
+    "productName": "MarkdownReader",
+    "files": [
+      "main.html",
+      "electron.js",
+      "node_modules/**/*"
+    ],
+    "directories": {
+      "output": "dist"
+    },
+    "win": {
+      "target": "nsis"
+    },
+    "linux": {
+      "target": "AppImage"
+    },
+    "mac": {
+      "target": "dmg"
+    }
+  }
+}
